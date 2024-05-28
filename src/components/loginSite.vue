@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <!-- Your component content here -->
+    <div class="background-container">
     <router-view/>
     <img src="../assets/logoTransparent.png" class="header-image header-image-logo-title" alt="Header1"/>
     <img src="../assets/logoName.png" class="header-image header-image-logo-name" alt="Header2"/>
@@ -18,12 +18,10 @@
       </div>
     </div>
   </div>
+  </div>
 </template>
 
 <script>
-import backgroundImage from '@/assets/loginSiteBackground.png';
-
-
 export default {
   name: 'loginSite',
   data() {
@@ -61,28 +59,22 @@ export default {
       });
   }
   },
-  mounted() {
-    // Set background image for the entire page
-    document.documentElement.style.height = '100%';
-    document.body.style.margin = '0';
-    document.body.style.padding = '0';
-    document.body.style.backgroundImage = `url(${backgroundImage})`;
-    document.body.style.backgroundSize = 'cover';
-    document.body.style.backgroundPosition = 'center';
-    document.body.style.backgroundRepeat = 'no-repeat';
-
-    // Set up the blue stripe at 80% of the site's height
-    const blueStripe = document.createElement('div');
-    blueStripe.classList.add('blue-stripe');
-    document.body.appendChild(blueStripe);
-  }
 };
 </script>
 
 <style scoped>
 /* Scoped styles for the root component */
-#app {
-  position: relative;
+
+.background-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('@/assets/loginSiteBackground.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
 }
 
 .header-image {
@@ -91,20 +83,15 @@ export default {
   height: auto;
   margin-bottom: 20px; /* Adjust margin as needed */
   position: absolute;
-}
-
-.header-image-logo-title {
-  position: fixed;
   top: 20%;
   left: 35%;
   width: 30%;
-  height: auto;
 }
 
 .header-image-logo-name {
-  position: fixed;
+  position: absolute;
   top: 2%;
-  right: 0;
+  left: 80%;
   width: 20%;
   height: auto;
 }
@@ -176,5 +163,21 @@ export default {
   color: #ffffff;
   cursor: pointer;
   font-size: 16px;
+}
+
+.sign-in-label {
+  margin-left: 10px;
+  color: #fff;
+}
+</style>
+
+<style>
+/* Global styles */
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
 }
 </style>
