@@ -42,6 +42,7 @@ export default {
 
     }
   },
+
   methods: {
     authenticateInput() {
       this.users.forEach(user => {
@@ -68,7 +69,10 @@ export default {
 
 <style scoped>
 /* Scoped styles for the root component */
-
+body {
+  overflow: hidden;
+  height: 100vh;
+}
 .background-container {
   position: absolute;
   top: 0;
