@@ -1,23 +1,22 @@
 <template>
-  <div id="app">
+  <div>
     <div class="background-container">
-    <router-view/>
-    <img src="../assets/logoTransparent.png" class="header-image header-image-logo-title" alt="Header1"/>
-    <img src="../assets/logoName.png" class="header-image header-image-logo-name" alt="Header2"/>
-    <div class="blue-stripe">
-      <div>
-        <label class="input-label1" for="email">Username</label>
-        <input class="input-field1" type="text" id="email" v-model="userNameInput"/>
-      </div>
-      <div>
-        <label class="input-label2" for="password">Password</label>
-        <input class="input-field2" type="password" id="password" v-model="passWordInput"/>
-      </div>
-      <div class="button-group">
-        <button class="sign-in-button" @click="authenticateInput">Sign In!</button>
+      <img src="../assets/logoTransparent.png" class="header-image header-image-logo-title" alt="Header1"/>
+      <img src="../assets/logoName.png" class="header-image header-image-logo-name" alt="Header2"/>
+      <div class="blue-stripe">
+        <div>
+          <label class="input-label1" for="email">Username</label>
+          <input class="input-field1" type="text" id="email" v-model="userNameInput"/>
+        </div>
+        <div>
+          <label class="input-label2" for="password">Password</label>
+          <input class="input-field2" type="password" id="password" v-model="passWordInput"/>
+        </div>
+        <div class="button-group">
+          <button class="sign-in-button" @click="authenticateInput">Sign In!</button>
+        </div>
       </div>
     </div>
-  </div>
   </div>
 </template>
 
@@ -30,12 +29,12 @@ export default {
       passWordInput: '',
       users: [
         {
-          id:'user',
+          id: 'user',
           userName: 'username',
           passWord: 'user1'
         },
         {
-          id:'admin',
+          id: 'admin',
           userName: 'adminname',
           passWord: 'admin1'
         }
@@ -51,13 +50,18 @@ export default {
         console.log(user.userName)
         console.log(this.passWordInput)
         console.log(user.passWord)
-        if (this.userNameInput === user.userName && this.passWordInput=== user.passWord) {
+        if (this.userNameInput === user.userName && this.passWordInput === user.passWord && user.id === 'admin') {
 
           console.log('Success Admin');
-          this.$router.replace('/test')
+          this.$router.replace('/admin')
+        } else if (this.userNameInput === user.userName && this.passWordInput === user.passWord && user.id === 'user') {
+
+          console.log('Success Admin');
+          this.$router.replace('/user')
         }
+
       });
-  }
+    }
   },
 };
 </script>
@@ -171,13 +175,3 @@ export default {
 }
 </style>
 
-<style>
-/* Global styles */
-html, body {
-  margin: 0;
-  padding: 0;
-  height: 100%;
-  width: 100%;
-  overflow: hidden;
-}
-</style>
