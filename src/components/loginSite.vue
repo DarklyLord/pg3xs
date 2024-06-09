@@ -121,8 +121,8 @@ body {
 .input-label1 {
   position: absolute;
   font-size: 25px;
-  left: 58%;
-  top: 12%;
+  left: 59%;
+  top: 7%;
   align-items: center;
   margin-bottom: 10px; /* Adjust margin between input groups */
   color: #fff;
@@ -136,13 +136,16 @@ body {
   border-radius: 5px;
   border: none;
   outline: none;
+  background: white;
 }
-
+input, select, textarea{
+  color: #000000;
+}
 .input-label2 {
   position: absolute;
   font-size: 25px;
-  left: 58%;
-  top: 40%;
+  left: 59%;
+  top: 35%;
   align-items: center;
   margin-bottom: 10px; /* Adjust margin between input groups */
   color: #fff;
@@ -157,13 +160,14 @@ body {
   border-radius: 5px;
   border: none;
   outline: none;
+  background: white;
 
 }
 
 .sign-in-button {
   margin-top: 5px; /* Adjust margin */
   width: 15%;
-  margin-left: 875px;
+  margin-left: 850px;
   padding: 10px 20px; /* Adjust padding */
   border: none;
   border-radius: 5px;
@@ -173,9 +177,5 @@ body {
   font-size: 16px;
 }
 
-.sign-in-label {
-  margin-left: 10px;
-  color: #fff;
-}
 </style>
 
