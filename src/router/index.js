@@ -1,14 +1,15 @@
 // Composables
 import { createRouter, createWebHistory } from 'vue-router'
 import loginSite from "@/components/loginSite.vue";
-import userPage from "@/components/userPage.vue";
-import adminPage from "@/components/adminPage.vue";
-
+import theHub from "@/components/theHub.vue";
+import timeMange from "@/components/timetableManagement.vue";
+import userMange from "@/components/userManagement.vue";
 
 const routes = [
   { path: '/', component: loginSite },
-  { path: '/user', component: userPage },
-  { path: '/admin', component: adminPage },
+  { path: '/hub', component: theHub },
+  { path: '/hub/timetable', component: timeMange },
+  { path: '/hub/userManagement', component: userMange },
 ]
 
 const router = createRouter({

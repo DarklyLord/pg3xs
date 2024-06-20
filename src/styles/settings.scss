@@ -1,0 +1,31 @@
+/* setting.scss */
+body, html, #app, .v-application {
+  height: 100%;
+  margin: 0;
+  overflow: hidden; /* Ensure no scrollbar */
+}
+
+.v-toolbar__content{
+  background-color: #1a5769;
+}
+
+.v-application--wrap {
+  min-height: 100vh;
+  overflow: hidden; /* Ensure no scrollbar */
+}
+
+.v-main {
+  flex: 1;
+  overflow: hidden; /* Ensure no scrollbar */
+  color: white;
+  background-color: white;
+}
+.v-footer{
+  max-height: 30px !important;
+  background-color: #d2d2d2;
+  box-shadow: 0px -2px 5px 0px rgba(0,0,0,0.02);
+}
+
+* {
+  box-sizing: border-box;
+}
