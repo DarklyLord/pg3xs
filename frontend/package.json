@@ -15,8 +15,7 @@
     "mysql": "^2.18.1",
     "roboto-fontface": "*",
     "vue": "^3.4.0",
-    "vuetify": "^3.5.0",
-    "vuex": "^4.0.2"
+    "vuetify": "^3.5.0"
   },
   "devDependencies": {
     "@vitejs/plugin-vue": "^5.0.4",

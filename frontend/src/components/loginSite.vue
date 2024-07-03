@@ -22,6 +22,8 @@
 
 <script>
 import axios from '@/services/axios';
+import { mapState, mapActions } from 'pinia';
+import { useUserStore } from '@/stores/piniaStore';
 
 export default {
 
@@ -51,6 +53,7 @@ export default {
   },
 
   methods: {
+    ...mapActions(useUserStore,['login','isloggedIn']),
     async fetchData() {
       try {
         const response = await axios.get('/access_levels');
@@ -67,8 +70,9 @@ export default {
           EmailAddress: this.userNameInput,
           Password: this.passWordInput
         },
-
       );
+
+
         this.responseData = response.data;
         console.log('Response:', this.responseData); // Handle the response data as needed
       } catch (error) {
