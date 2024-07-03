@@ -1,13 +1,12 @@
 // config/ServerConfig.js
-const { Sequelize } = require('sequelize');
+const { Sequelize } = require('sequelize')
 
 class ServerConfig {
-        constructor({ HOST, USER, PASSWORD, DB, dialect }) {
-                this.sequelize = new Sequelize(DB, USER, PASSWORD, {
-                        host: HOST,
-                        dialect: dialect,
-                });
-        }
+  constructor ({ HOST, USER, PASSWORD, DB, dialect }) {
+    this.sequelize = new Sequelize(DB, USER, PASSWORD, {
+      host: HOST,
+      dialect: dialect
+    })
+  }
 }
-
-module.exports = ServerConfig;
+module.exports = ServerConfig

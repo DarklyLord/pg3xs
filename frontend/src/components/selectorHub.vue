@@ -1,12 +1,25 @@
 <template>
   <v-list>
-    <v-list-item @click="console.log('Test1')"><v-icon>mdi-text-box-search-outline</v-icon>Timetable Management</v-list-item>
-    <v-list-item @click="console.log('Test2')"><v-icon>mdi-account</v-icon>User Settings</v-list-item>
-    <v-list-item @click="console.log('Test3')"><v-icon>mdi-tools</v-icon>User Management</v-list-item>
+    <v-list-item @click="gotoTimeManagement"><v-icon>mdi-text-box-search-outline</v-icon>Timetable Management</v-list-item>
+    <v-list-item @click="gotoUserSettings"><v-icon>mdi-account</v-icon>User Settings</v-list-item>
+    <v-list-item @click="gotoUserManagement"><v-icon>mdi-tools</v-icon>User Management</v-list-item>
   </v-list>
 </template>
 
-<script setup>
+<script>
+export default{
+  methods:{
+    gotoTimeManagement(){
+      this.$router.push('/hub/timeManagement')
+    },
+    gotoUserSettings(){
+      this.$router.push('/hub/userSettings')
+    },
+    gotoUserManagement(){
+      this.$router.push('/hub/userManagement')
+    }
+  }
+}
 
 </script>
 

@@ -7,7 +7,8 @@ const db = new ServerConfig({
   PASSWORD: 'password',
   DB: 'db_test',
   dialect: 'mysql'
-})
+}
+)
 
 const sequelize = db.sequelize
 

@@ -11,8 +11,9 @@
       </div>
     </v-app-bar>
     <v-main>
-      <selector-hub>
-      </selector-hub>
+      <router-view>
+
+      </router-view>
     </v-main>
     <v-footer>
       <div class="version-number">

@@ -15,6 +15,7 @@ const app = express()
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: true }))
 app.use(morgan('combined'))
+app.use(cors())
 
 // Routes
 app.use('/access_levels', accessLevelRoutes)

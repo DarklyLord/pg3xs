@@ -6,14 +6,14 @@
       <div class="blue-stripe">
         <div>
           <label class="input-label1" for="email">Username</label>
-          <input class="input-field1" type="text" id="email" v-model="userNameInput"/>
+          <input class="input-field1" type="email" id="email" v-model="userNameInput"/>
         </div>
         <div>
           <label class="input-label2" for="password">Password</label>
           <input class="input-field2" type="password" id="password" v-model="passWordInput"/>
         </div>
         <div class="button-group">
-          <button class="sign-in-button" @click="authenticateInput">Sign In!</button>
+          <button class="sign-in-button" @click="login">Sign In!</button>
         </div>
       </div>
     </div>
@@ -21,10 +21,14 @@
 </template>
 
 <script>
+import axios from '@/services/axios';
+
 export default {
+
   name: 'loginSite',
   data() {
     return {
+      responseData: null,
       userNameInput: '',
       passWordInput: '',
       users: [
@@ -42,8 +46,36 @@ export default {
 
     }
   },
+  mounted() {
+    this.fetchData()
+  },
 
   methods: {
+    async fetchData() {
+      try {
+        const response = await axios.get('/access_levels');
+        this.responseData = response.data;
+        console.log('Response:', this.responseData); // Handle the response data as needed
+      } catch (error) {
+        console.error('Error fetching data:', error);
+        // Handle error as needed
+      }
+    },
+    async login(){
+      try {
+        const response = await axios.post('/employees/login',{
+          EmailAddress: this.userNameInput,
+          Password: this.passWordInput
+        },
+
+      );
+        this.responseData = response.data;
+        console.log('Response:', this.responseData); // Handle the response data as needed
+      } catch (error) {
+        console.error('Error fetching data:', error);
+        // Handle error as needed
+      }
+    },
     authenticateInput() {
       this.users.forEach(user => {
         console.log(user);

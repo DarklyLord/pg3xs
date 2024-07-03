@@ -1,5 +1,5 @@
-const Sequelize = require('sequelize');
-module.exports = function(sequelize, DataTypes) {
+const Sequelize = require('sequelize')
+module.exports = function (sequelize, DataTypes) {
   return sequelize.define('employee', {
     ID: {
       autoIncrement: true,
@@ -27,10 +27,10 @@ module.exports = function(sequelize, DataTypes) {
         key: 'ID'
       }
     },
-    EMailAdresse: {
+    EmailAddress: {
       type: DataTypes.STRING(50),
       allowNull: false,
-      unique: "email_UNIQUE"
+      unique: 'email_UNIQUE'
     }
   }, {
     sequelize,
@@ -38,28 +38,28 @@ module.exports = function(sequelize, DataTypes) {
     timestamps: false,
     indexes: [
       {
-        name: "PRIMARY",
+        name: 'PRIMARY',
         unique: true,
-        using: "BTREE",
+        using: 'BTREE',
         fields: [
-          { name: "ID" },
+          { name: 'ID' }
         ]
       },
       {
-        name: "email_UNIQUE",
+        name: 'email_UNIQUE',
         unique: true,
-        using: "BTREE",
+        using: 'BTREE',
         fields: [
-          { name: "EMailAdresse" },
+          { name: 'EmailAddress' }
         ]
       },
       {
-        name: "fk_emp_accl_id_id",
-        using: "BTREE",
+        name: 'fk_emp_accl_id_id',
+        using: 'BTREE',
         fields: [
-          { name: "AccessLevelID" },
+          { name: 'AccessLevelID' }
         ]
-      },
+      }
     ]
-  });
-};
+  })
+}
