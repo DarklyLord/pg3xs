@@ -1,36 +1,58 @@
 <template>
-  <v-app>
-    <v-app-bar class="headerBar">
-      <div class="nav-bar" @click="console.log('Nav Clicked')">
-        <v-icon>mdi-home-circle</v-icon>
-        Hub
-      </div>
-      <div class="logout-bar">
-        <v-icon>mdi-logout</v-icon>
-        Admin1
-      </div>
-    </v-app-bar>
-    <v-main>
-      <router-view>
+    <v-app v-if="checkAccess()">
+      <v-app-bar class="headerBar">
+        <div class="nav-bar" @click="console.log('Nav Clicked')">
+          <v-icon>mdi-home-circle</v-icon>
+          Hub
+        </div>
+        <div class="logout-bar">
+          <v-icon>mdi-logout</v-icon>
+          Admin1
+        </div>
+      </v-app-bar>
+      <v-main>
+        <router-view>
 
-      </router-view>
-    </v-main>
-    <v-footer>
-      <div class="version-number">
-        <!-- <v-img src="../assets/logoName.png"  ></v-img>-->
-        Version 0.24
+        </router-view>
+      </v-main>
+      <v-footer>
+        <div class="version-number">
+          <!-- <v-img src="../assets/logoName.png"  ></v-img>-->
+          Version 0.24
 
-      </div>
-    </v-footer>
-  </v-app>
+        </div>
+      </v-footer>
+    </v-app>
+  <div v-else>
+    <h1 > Forbidden No Access</h1>
+    <h1 > How did you get Here?</h1>
+    <router-link to="/"> Go back to Login</router-link>
+  </div>
+
 </template>
 
 <script>
-import SelectorHub from "@/components/selectorHub.vue";
+import {mapState} from "pinia";
+import {useUserStore} from "@/stores/userStore";
 
 export default {
-  name: 'YourComponentName',
-  components: {SelectorHub},
+  computed: {
+    ...mapState(useUserStore, {
+      userLevel: 'getUserLevel',
+      isLoggedIn: 'getIsLoggedIn',
+      email: 'getEmail',
+    })
+  },
+  methods: {
+    checkAccess() {
+      console.log("UserLevel: " + this.userLevel)
+      if (this.userLevel === 1 || this.userLevel === 2 || this.userLevel === 3) {
+        console.log("thehub")
+        return true
+
+      }
+    },
+  }
 }
 </script>
 

@@ -23,7 +23,8 @@
 <script>
 import axios from '@/services/axios';
 import { mapState, mapActions } from 'pinia';
-import { useUserStore } from '@/stores/piniaStore';
+import { useUserStore } from '@/stores/userStore';
+import router from "@/router";
 
 export default {
 
@@ -31,39 +32,20 @@ export default {
   data() {
     return {
       responseData: null,
-      userNameInput: '',
-      passWordInput: '',
-      users: [
-        {
-          id: 'user',
-          userName: 'username',
-          passWord: 'user1'
-        },
-        {
-          id: 'admin',
-          userName: 'adminname',
-          passWord: 'admin1'
-        }
-      ]
-
+      userNameInput: 'lm@lars-metzger.de',
+      passWordInput: 'admin',
     }
   },
-  mounted() {
-    this.fetchData()
+  computed: {
+    ...mapState(useUserStore, {
+      userLevel: 'getUserLevel',
+      isLoggedIn: 'getIsLoggedIn',
+      email: 'getEmail',
+    })
   },
 
   methods: {
-    ...mapActions(useUserStore,['login','isloggedIn']),
-    async fetchData() {
-      try {
-        const response = await axios.get('/access_levels');
-        this.responseData = response.data;
-        console.log('Response:', this.responseData); // Handle the response data as needed
-      } catch (error) {
-        console.error('Error fetching data:', error);
-        // Handle error as needed
-      }
-    },
+    ...mapActions(useUserStore, ['setUserLevel', 'setEmail']),
     async login(){
       try {
         const response = await axios.post('/employees/login',{
@@ -71,34 +53,24 @@ export default {
           Password: this.passWordInput
         },
       );
-
-
         this.responseData = response.data;
-        console.log('Response:', this.responseData); // Handle the response data as needed
-      } catch (error) {
+        this.setEmail(this.responseData.user)
+        this.setUserLevel(parseInt(this.responseData.userLevel))
+        // console.log('Response:', this.responseData);
+        // console.log('Email Response: '+this.responseData.user)
+        // console.log('UserLevel Response: '+parseInt(this.responseData.userLevel))
+        // console.log("Email:  "+this.email)
+        // console.log("User Level:  "+this.userLevel)
+        if(this.userLevel===1 || 2 || 3){
+          this.$router.push('/hub')
+        }
+         // Handle the response data as needed
+      }catch (error) {
         console.error('Error fetching data:', error);
-        // Handle error as needed
+        this.setEmail('')
+        this.setUserLevel(0)
       }
     },
-    authenticateInput() {
-      this.users.forEach(user => {
-        console.log(user);
-        console.log(this.passWordInput)
-        console.log(user.userName)
-        console.log(this.passWordInput)
-        console.log(user.passWord)
-        if (this.userNameInput === user.userName && this.passWordInput === user.passWord && user.id === 'admin') {
-
-          console.log('Success Admin');
-          this.$router.replace('/admin')
-        } else if (this.userNameInput === user.userName && this.passWordInput === user.passWord && user.id === 'user') {
-
-          console.log('Success Admin');
-          this.$router.replace('/user')
-        }
-
-      });
-    }
   },
 };
 </script>

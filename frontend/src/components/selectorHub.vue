@@ -1,16 +1,35 @@
 <template>
-  <v-list>
+  <v-list >
     <v-list-item @click="gotoTimeManagement"><v-icon>mdi-text-box-search-outline</v-icon>Timetable Management</v-list-item>
     <v-list-item @click="gotoUserSettings"><v-icon>mdi-account</v-icon>User Settings</v-list-item>
-    <v-list-item @click="gotoUserManagement"><v-icon>mdi-tools</v-icon>User Management</v-list-item>
+    <v-list-item v-if="checkAccess()" @click="gotoUserManagement"><v-icon>mdi-tools</v-icon>User Management</v-list-item>
   </v-list>
 </template>
 
 <script>
+import {mapState} from "pinia";
+import {useUserStore} from "@/stores/userStore";
+
 export default{
+  computed: {
+    ...mapState(useUserStore, {
+      userLevel: 'getUserLevel',
+      isLoggedIn: 'getIsLoggedIn',
+      email: 'getEmail',
+    })
+  },
   methods:{
+    checkAccess(){
+      console.log("UserLevel: "+this.userLevel)
+      if(this.userLevel===1 || this.userLevel===2){
+        console.log("SelectorHub")
+        return true
+
+      }
+    },
     gotoTimeManagement(){
-      this.$router.push('/hub/timeManagement')
+      console.log(this.userLevel)
+      //this.$router.push('/hub/timeManagement')
     },
     gotoUserSettings(){
       this.$router.push('/hub/userSettings')

@@ -8,9 +8,6 @@ import timeMana from "@/components/theHubSub/userManagement.vue";
 import userSettings from "@/components/theHubSub/userManagement.vue";
 import userMana from "@/components/theHubSub/userManagement.vue";
 
-
-
-
 const routes = [
   { path: '/', component: loginSite },
   { path: '/hub', component: theHub,

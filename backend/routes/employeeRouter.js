@@ -57,6 +57,7 @@ router.post('/login', async (req, res) => {
     } else if (emp) {
       res.json({
         user: emp.EmailAddress,
+        userLevel: emp.AccessLevelID,
         token: jwtSignUser(emp.EmailAddress)
       })
     } else {
