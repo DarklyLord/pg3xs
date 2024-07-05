@@ -36,7 +36,10 @@ router.get('/:id', async (req, res) => {
   try {
     const emp = await employee.findByPk(req.params.id)
     if (emp) {
-      res.json(emp)
+      const empData = emp.toJSON()
+      delete empData.AccessLevelID
+      delete empData.ID
+      res.json(empData)
     } else {
       res.status(404).json({error: 'Employee not found'})
     }
@@ -58,6 +61,7 @@ router.post('/login', async (req, res) => {
       res.json({
         user: emp.EmailAddress,
         userLevel: emp.AccessLevelID,
+        userId: emp.ID,
         token: jwtSignUser(emp.EmailAddress)
       })
     } else {

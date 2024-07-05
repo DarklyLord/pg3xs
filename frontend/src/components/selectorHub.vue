@@ -22,7 +22,6 @@ export default{
     checkAccess(){
       console.log("UserLevel: "+this.userLevel)
       if(this.userLevel===1 || this.userLevel===2){
-        console.log("SelectorHub")
         return true
 
       }

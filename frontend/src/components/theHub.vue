@@ -7,7 +7,7 @@
         </div>
         <div class="logout-bar">
           <v-icon>mdi-logout</v-icon>
-          Admin1
+          {{this.email}}
         </div>
       </v-app-bar>
       <v-main>
@@ -45,9 +45,7 @@ export default {
   },
   methods: {
     checkAccess() {
-      console.log("UserLevel: " + this.userLevel)
       if (this.userLevel === 1 || this.userLevel === 2 || this.userLevel === 3) {
-        console.log("thehub")
         return true
 
       }

@@ -22,8 +22,8 @@
 
 <script>
 import axios from '@/services/axios';
-import { mapState, mapActions } from 'pinia';
-import { useUserStore } from '@/stores/userStore';
+import {mapState, mapActions} from 'pinia';
+import {useUserStore} from '@/stores/userStore';
 import router from "@/router";
 
 export default {
@@ -41,31 +41,28 @@ export default {
       userLevel: 'getUserLevel',
       isLoggedIn: 'getIsLoggedIn',
       email: 'getEmail',
+      userId: 'getUserId',
     })
   },
 
   methods: {
-    ...mapActions(useUserStore, ['setUserLevel', 'setEmail']),
-    async login(){
+    ...mapActions(useUserStore, ['setUserLevel', 'setEmail', "setUserId"]),
+    async login() {
       try {
-        const response = await axios.post('/employees/login',{
-          EmailAddress: this.userNameInput,
-          Password: this.passWordInput
-        },
-      );
+        const response = await axios.post('/employees/login', {
+            EmailAddress: this.userNameInput,
+            Password: this.passWordInput
+          },
+        );
         this.responseData = response.data;
         this.setEmail(this.responseData.user)
         this.setUserLevel(parseInt(this.responseData.userLevel))
-        // console.log('Response:', this.responseData);
-        // console.log('Email Response: '+this.responseData.user)
-        // console.log('UserLevel Response: '+parseInt(this.responseData.userLevel))
-        // console.log("Email:  "+this.email)
-        // console.log("User Level:  "+this.userLevel)
-        if(this.userLevel===1 || 2 || 3){
+        this.setUserId(parseInt(this.responseData.userId))
+        if (this.userLevel === 1 || 2 || 3) {
           this.$router.push('/hub')
         }
-         // Handle the response data as needed
-      }catch (error) {
+        // Handle the response data as needed
+      } catch (error) {
         console.error('Error fetching data:', error);
         this.setEmail('')
         this.setUserLevel(0)
@@ -81,6 +78,7 @@ body {
   overflow: hidden;
   height: 100vh;
 }
+
 .background-container {
   position: absolute;
   top: 0;
@@ -146,9 +144,11 @@ body {
   outline: none;
   background: white;
 }
-input, select, textarea{
+
+input, select, textarea {
   color: #000000;
 }
+
 .input-label2 {
   position: absolute;
   font-size: 25px;

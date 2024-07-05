@@ -4,8 +4,8 @@ import loginSite from "@/components/loginSite.vue";
 import theHub from "@/components/theHub.vue";
 import timeMange from "@/components/timetableManagement.vue";
 import selectorHub from "@/components/selectorHub.vue";
-import timeMana from "@/components/theHubSub/userManagement.vue";
-import userSettings from "@/components/theHubSub/userManagement.vue";
+import timeMana from "@/components/theHubSub/timeTableMana.vue";
+import userSettings from "@/components/theHubSub/userSettings.vue";
 import userMana from "@/components/theHubSub/userManagement.vue";
 
 const routes = [
