@@ -1,13 +1,13 @@
 <template>
     <v-app v-if="checkAccess()">
       <v-app-bar class="headerBar">
-        <div class="nav-bar" @click="console.log('Nav Clicked')">
+        <div class="nav-bar" @click="goToHub()">
           <v-icon>mdi-home-circle</v-icon>
           Hub
         </div>
-        <div class="logout-bar">
+        <div class="logout-bar" @click="goToLogin">
           <v-icon>mdi-logout</v-icon>
-          {{this.email}}
+          {{this.prefixEmail}}
         </div>
       </v-app-bar>
       <v-main>
@@ -18,7 +18,7 @@
       <v-footer>
         <div class="version-number">
           <!-- <v-img src="../assets/logoName.png"  ></v-img>-->
-          Version 0.24
+          Version 0.5
 
         </div>
       </v-footer>
@@ -34,22 +34,50 @@
 <script>
 import {mapState} from "pinia";
 import {useUserStore} from "@/stores/userStore";
+import router from "@/router";
 
 export default {
+  data(){
+    return{
+      prefixEmail:''
+    }
+  },
   computed: {
     ...mapState(useUserStore, {
       userLevel: 'getUserLevel',
       isLoggedIn: 'getIsLoggedIn',
       email: 'getEmail',
+
     })
   },
+  mounted() {
+    this.getEmailPart(this.email)
+  },
   methods: {
+    router() {
+      return router
+    },
+    goToHub(){
+      router.push('/hub')
+    },
+    goToLogin(){
+      router.push('/')
+    },
     checkAccess() {
       if (this.userLevel === 1 || this.userLevel === 2 || this.userLevel === 3) {
         return true
 
       }
     },
+    getEmailPart(email) {
+      // Split the email into two parts using the "@" as the delimiter
+      const parts = email.split('@');
+
+      // Destructure the parts array into localPart and domainPart
+      const [localPart, domainPart] = parts;
+
+      this.prefixEmail = localPart
+    }
   }
 }
 </script>
