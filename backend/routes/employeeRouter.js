@@ -61,8 +61,7 @@ router.post('/login', async (req, res) => {
       res.json({
         user: emp.EmailAddress,
         userLevel: emp.AccessLevelID,
-        userId: emp.ID,
-        token: jwtSignUser(emp.EmailAddress)
+        userId: emp.ID
       })
     } else {
       res.status(404).json({error: 'Employee not found'})

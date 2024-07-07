@@ -4,81 +4,21 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1d10ab30-e4fc-4da3-b8ee-ec33d4440214" name="Changes" comment="0704">
+    <list default="true" id="1d10ab30-e4fc-4da3-b8ee-ec33d4440214" name="Changes" comment="0706">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/routes/employeeRouter.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/routes/employeeRouter.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/node_modules/.vite/deps/_metadata.json" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/node_modules/.vite/deps/_metadata.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/node_modules/.vite/deps/axios.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/node_modules/.vite/deps/axios.js.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/node_modules/.vite/deps/chunk-3KLUBKMC.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/node_modules/.vite/deps/chunk-3KLUBKMC.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/node_modules/.vite/deps/chunk-5FTKWRYC.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/node_modules/.vite/deps/chunk-5FTKWRYC.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/node_modules/.vite/deps/chunk-74I7P4OV.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/node_modules/.vite/deps/chunk-74I7P4OV.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/node_modules/.vite/deps/chunk-7WYBU2EZ.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/node_modules/.vite/deps/chunk-7WYBU2EZ.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/node_modules/.vite/deps/chunk-AOHVKM5S.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/node_modules/.vite/deps/chunk-AOHVKM5S.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/node_modules/.vite/deps/chunk-DKALARUG.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/node_modules/.vite/deps/chunk-DKALARUG.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/node_modules/.vite/deps/chunk-E5FZFBKA.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/node_modules/.vite/deps/chunk-E5FZFBKA.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/node_modules/.vite/deps/chunk-EPS63WZW.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/node_modules/.vite/deps/chunk-EPS63WZW.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/node_modules/.vite/deps/chunk-FSPXJNGI.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/node_modules/.vite/deps/chunk-FSPXJNGI.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/node_modules/.vite/deps/chunk-GG66HNR7.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/node_modules/.vite/deps/chunk-GG66HNR7.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/node_modules/.vite/deps/chunk-HHAH7MBM.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/node_modules/.vite/deps/chunk-HHAH7MBM.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/node_modules/.vite/deps/chunk-IYHRFZWX.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/node_modules/.vite/deps/chunk-IYHRFZWX.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/node_modules/.vite/deps/chunk-LLEJ34GG.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/node_modules/.vite/deps/chunk-LLEJ34GG.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/node_modules/.vite/deps/chunk-MKKJZBE5.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/node_modules/.vite/deps/chunk-MKKJZBE5.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/node_modules/.vite/deps/chunk-NK6OSLBQ.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/node_modules/.vite/deps/chunk-NK6OSLBQ.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/node_modules/.vite/deps/chunk-OPJB2E7R.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/node_modules/.vite/deps/chunk-OPJB2E7R.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/node_modules/.vite/deps/chunk-PL2TVRD7.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/node_modules/.vite/deps/chunk-PL2TVRD7.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/node_modules/.vite/deps/chunk-QT6WJA6M.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/node_modules/.vite/deps/chunk-QT6WJA6M.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/node_modules/.vite/deps/chunk-RJ64OBON.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/node_modules/.vite/deps/chunk-RJ64OBON.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/node_modules/.vite/deps/chunk-RWDSWYJV.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/node_modules/.vite/deps/chunk-RWDSWYJV.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/node_modules/.vite/deps/chunk-VEDA5HSK.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/node_modules/.vite/deps/chunk-VEDA5HSK.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/node_modules/.vite/deps/chunk-VID4RN2V.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/node_modules/.vite/deps/chunk-VID4RN2V.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/node_modules/.vite/deps/chunk-YSDSJBAI.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/node_modules/.vite/deps/chunk-YSDSJBAI.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/node_modules/.vite/deps/pinia.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/node_modules/.vite/deps/pinia.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/node_modules/.vite/deps/pinia.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/node_modules/.vite/deps/pinia.js.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/node_modules/.vite/deps/vue-router.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/node_modules/.vite/deps/vue-router.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/node_modules/.vite/deps/vue-router.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/node_modules/.vite/deps/vue-router.js.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/node_modules/.vite/deps/vue.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/node_modules/.vite/deps/vue.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/node_modules/.vite/deps/vuetify.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/node_modules/.vite/deps/vuetify.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/node_modules/.vite/deps/vuetify.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/node_modules/.vite/deps/vuetify.js.map" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/node_modules/.vite/deps/vuetify_lib_components_VAppBar_index__mjs.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/node_modules/.vite/deps/vuetify_lib_components_VAppBar_index__mjs.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/node_modules/.vite/deps/vuetify_lib_components_VAppBar_index__mjs.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/node_modules/.vite/deps/vuetify_lib_components_VAppBar_index__mjs.js.map" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/node_modules/.vite/deps/vuetify_lib_components_VApp_index__mjs.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/node_modules/.vite/deps/vuetify_lib_components_VApp_index__mjs.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/node_modules/.vite/deps/vuetify_lib_components_VCard_index__mjs.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/node_modules/.vite/deps/vuetify_lib_components_VCard_index__mjs.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/node_modules/.vite/deps/vuetify_lib_components_VCard_index__mjs.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/node_modules/.vite/deps/vuetify_lib_components_VCard_index__mjs.js.map" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/node_modules/.vite/deps/vuetify_lib_components_VFooter_index__mjs.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/node_modules/.vite/deps/vuetify_lib_components_VFooter_index__mjs.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/node_modules/.vite/deps/vuetify_lib_components_VFooter_index__mjs.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/node_modules/.vite/deps/vuetify_lib_components_VFooter_index__mjs.js.map" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/node_modules/.vite/deps/vuetify_lib_components_VIcon_index__mjs.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/node_modules/.vite/deps/vuetify_lib_components_VIcon_index__mjs.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/node_modules/.vite/deps/vuetify_lib_components_VInput_index__mjs.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/node_modules/.vite/deps/vuetify_lib_components_VInput_index__mjs.js.map" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/node_modules/.vite/deps/vuetify_lib_components_VList_index__mjs.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/node_modules/.vite/deps/vuetify_lib_components_VList_index__mjs.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/node_modules/.vite/deps/vuetify_lib_components_VList_index__mjs.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/node_modules/.vite/deps/vuetify_lib_components_VList_index__mjs.js.map" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/node_modules/.vite/deps/vuetify_lib_components_VMain_index__mjs.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/node_modules/.vite/deps/vuetify_lib_components_VMain_index__mjs.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/node_modules/.vite/deps/vuetify_lib_components_VMain_index__mjs.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/node_modules/.vite/deps/vuetify_lib_components_VMain_index__mjs.js.map" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/node_modules/.vite/deps/vuetify_lib_components_VTextField_index__mjs.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/node_modules/.vite/deps/vuetify_lib_components_VTextField_index__mjs.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/node_modules/.vite/deps/vuetify_lib_components_VTextField_index__mjs.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/node_modules/.vite/deps/vuetify_lib_components_VTextField_index__mjs.js.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/components/theHub.vue" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/theHub.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/components/theHubSub/userSettings.vue" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/theHubSub/userSettings.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/styles/settings.scss" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/styles/settings.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/theHubSub/userManagement.vue" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/theHubSub/userManagement.vue" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -211,7 +151,8 @@
       <workItem from="1720114557976" duration="70000" />
       <workItem from="1720115493190" duration="426000" />
       <workItem from="1720115934502" duration="9344000" />
-      <workItem from="1720295339698" duration="1625000" />
+      <workItem from="1720295339698" duration="9709000" />
+      <workItem from="1720382079835" duration="4575000" />
     </task>
     <task id="LOCAL-00001" summary="First Step Change to Vuetify">
       <option name="closed" value="true" />
@@ -333,7 +274,15 @@
       <option name="project" value="LOCAL" />
       <updated>1720111897710</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="0706">
+      <option name="closed" value="true" />
+      <created>1720297019848</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1720297019848</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -375,6 +324,7 @@
     <MESSAGE value="Login Backend Finished" />
     <MESSAGE value="adding backend node modules" />
     <MESSAGE value="0704" />
-    <option name="LAST_COMMIT_MESSAGE" value="0704" />
+    <MESSAGE value="0706" />
+    <option name="LAST_COMMIT_MESSAGE" value="0706" />
   </component>
 </project>
