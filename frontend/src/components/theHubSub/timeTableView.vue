@@ -8,17 +8,21 @@
         <th>Morning</th>
         <th>Afternoon</th>
         <th>Evening</th>
+        <th>Delete</th>
       </tr>
       </thead>
       <tbody>
       <tr v-for="(schedule, index) in schedules" :key="index">
         <td>{{ schedule.Date }}</td>
-        <td v-if="schedule.AssignedShift === 1">{{ getEmailById(schedule.EmployeeID)}}</td>
+        <td v-if="schedule.AssignedShift === 1">{{ getEmailById(schedule.EmployeeID) }}</td>
         <td v-else></td>
-        <td v-if="schedule.AssignedShift === 2"> {{getEmailById(schedule.EmployeeID)}}</td>
+        <td v-if="schedule.AssignedShift === 2"> {{ getEmailById(schedule.EmployeeID) }}</td>
         <td v-else></td>
-        <td v-if="schedule.AssignedShift === 3">{{ getEmailById(schedule.EmployeeID)}}</td>
+        <td v-if="schedule.AssignedShift === 3">{{ getEmailById(schedule.EmployeeID) }}</td>
         <td v-else></td>
+        <td>
+          <button @click="deleteEntry(schedule.EmployeeID,schedule.Date)">Delete Shift</button>
+        </td>
       </tr>
       </tbody>
     </table>
@@ -37,51 +41,64 @@ export default {
     };
   },
   methods: {
-    async fetchSchedules() {
+    async deleteEntry(Id, date) {
+      console.log(this.schedules)
       try {
-        const response = await axios.get('/employee_scheduales');
-        if (Array.isArray(response.data)) {
-          this.schedules = response.data;
-          // Fetch employee emails based on the EmployeeID in schedules
-        } else {
-          console.error('Fetched data is not an array');
-        }
-      } catch (error) {
-        console.error('Error fetching schedules:', error);
+        await axios.delete('/employee_scheduales/' + Id + '/' + date);
       }
-      console.log(this.schedules[0].EmployeeID)
+     catch(error) {
+      console.log('Error Deleteing:', error);}
+      this.fetchSchedules()
     },
-    getEmployeeEmail(){
 
-    },
-    async fetchEmployeeEmail() {
-      try{
-        const response = await axios.get('/employees');
+  async fetchSchedules() {
+    try {
+      const response = await axios.get('/employee_scheduales');
+      if (Array.isArray(response.data)) {
+        this.schedules = response.data;
+        // Fetch employee emails based on the EmployeeID in schedules
+      } else {
+        console.error('Fetched data is not an array');
+      }
+    } catch (error) {
+      console.error('Error fetching schedules:', error);
+    }
+    console.log(this.schedules[0].EmployeeID)
+  },
+  getEmployeeEmail() {
 
-        this.employeeEmails = response.data
-        console.log(this.employeeEmails)
-      }catch (error) {
-        console.error('Error fetching schedules:', error);
-      }
-    },
-    getEmailById(id) {
-      // Loop through the array of objects
-      for (let i = 0; i < this.employeeEmails.length; i++) {
-        // Check if the current object's ID matches the desired ID
-        if (this.employeeEmails[i].ID === id) {
-          // Return the email address if found
-          return this.employeeEmails[i].EmailAddress;
-        }
-      }
-      // Return null or handle the case where ID is not found
-      return null; // Or throw an error, or return a default value as per your requirement
+  },
+  async fetchEmployeeEmail() {
+    try {
+      const response = await axios.get('/employees');
+
+      this.employeeEmails = response.data
+      console.log(this.employeeEmails)
+    } catch (error) {
+      console.error('Error fetching schedules:', error);
     }
   },
-  mounted() {
-    this.fetchEmployeeEmail()
-    this.fetchSchedules();
+  getEmailById(id) {
+    // Loop through the array of objects
+    for (let i = 0; i < this.employeeEmails.length; i++) {
+      // Check if the current object's ID matches the desired ID
+      if (this.employeeEmails[i].ID === id) {
+        // Return the email address if found
+        return this.employeeEmails[i].EmailAddress;
+      }
+    }
+    // Return null or handle the case where ID is not found
+    return null; // Or throw an error, or return a default value as per your requirement
   }
-};
+}
+,
+mounted()
+{
+  this.fetchEmployeeEmail()
+  this.fetchSchedules();
+}
+}
+;
 </script>
 
 <style scoped>
@@ -108,6 +125,15 @@ h2 {
 .schedule-table th {
   background-color: #f0f0f0;
   color: black;
+}
+
+button {
+  padding: 5px 10px;
+  background-color: #ff0000;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
 }
 
 .schedule-table td {

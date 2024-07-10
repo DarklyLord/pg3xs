@@ -18,7 +18,7 @@
       <v-footer>
         <div class="version-number">
           <!-- <v-img src="../assets/logoName.png"  ></v-img>-->
-          Version 0.5
+          Version 0.8
 
         </div>
       </v-footer>
