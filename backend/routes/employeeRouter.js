@@ -49,6 +49,26 @@ router.get('/:id', async (req, res) => {
   }
 })
 
+router.post('/get-employee-emails', async (req, res) => {
+  try {
+    const { ID } = req.body
+    if (!Array.isArray(ID)) {
+      return res.status(400).json({ error: 'employeeIds must be an array' })
+    }
+
+    const employees = await employee.findAll({
+      where: {
+        ID: ID
+      },
+      attributes: ['ID', 'EmailAddress']
+    })
+
+    res.json(employees)
+  } catch (error) {
+    console.error('Error fetching employee emails:', error)
+    res.status(500).json({ error: 'Internal Server Error' })
+  }
+})
 router.post('/login', async (req, res) => {
   const { EmailAddress, Password } = req.body
   try {

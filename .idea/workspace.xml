@@ -4,21 +4,22 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1d10ab30-e4fc-4da3-b8ee-ec33d4440214" name="Changes" comment="0706">
+    <list default="true" id="1d10ab30-e4fc-4da3-b8ee-ec33d4440214" name="Changes" comment="User Mana and Setting Done">
+      <change afterPath="$PROJECT_DIR$/frontend/src/components/theHubSub/timeTableManaAssign.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/components/theHubSub/timeTableManaSelect.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/8/1/818151573ffe99b7a2f92decdedd79efa399e344" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/8/1/818151573ffe99b7a2f92decdedd79efa399e344" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/index.pb" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/index.pb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/models/availability.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/models/availability.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/models/employee.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/models/employee.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/models/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/models/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/routes/availabilityRouter.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/routes/availabilityRouter.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/routes/employeeRouter.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/routes/employeeRouter.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/node_modules/.vite/deps/_metadata.json" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/node_modules/.vite/deps/_metadata.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/node_modules/.vite/deps/vuetify.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/node_modules/.vite/deps/vuetify.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/node_modules/.vite/deps/vuetify.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/node_modules/.vite/deps/vuetify.js.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/node_modules/.vite/deps/vuetify_lib_components_VAppBar_index__mjs.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/node_modules/.vite/deps/vuetify_lib_components_VAppBar_index__mjs.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/node_modules/.vite/deps/vuetify_lib_components_VApp_index__mjs.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/node_modules/.vite/deps/vuetify_lib_components_VApp_index__mjs.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/node_modules/.vite/deps/vuetify_lib_components_VCard_index__mjs.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/node_modules/.vite/deps/vuetify_lib_components_VCard_index__mjs.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/node_modules/.vite/deps/vuetify_lib_components_VFooter_index__mjs.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/node_modules/.vite/deps/vuetify_lib_components_VFooter_index__mjs.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/node_modules/.vite/deps/vuetify_lib_components_VIcon_index__mjs.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/node_modules/.vite/deps/vuetify_lib_components_VIcon_index__mjs.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/node_modules/.vite/deps/vuetify_lib_components_VList_index__mjs.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/node_modules/.vite/deps/vuetify_lib_components_VList_index__mjs.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/node_modules/.vite/deps/vuetify_lib_components_VMain_index__mjs.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/node_modules/.vite/deps/vuetify_lib_components_VMain_index__mjs.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/node_modules/.vite/deps/vuetify_lib_components_VTextField_index__mjs.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/node_modules/.vite/deps/vuetify_lib_components_VTextField_index__mjs.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/components/theHubSub/userManagement.vue" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/theHubSub/userManagement.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/selectorHub.vue" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/selectorHub.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/theHubSub/timeTableMana.vue" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/theHubSub/timeTableView.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/router/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/router/index.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -152,7 +153,13 @@
       <workItem from="1720115493190" duration="426000" />
       <workItem from="1720115934502" duration="9344000" />
       <workItem from="1720295339698" duration="9709000" />
-      <workItem from="1720382079835" duration="4575000" />
+      <workItem from="1720382079835" duration="6066000" />
+      <workItem from="1720474777779" duration="3013000" />
+      <workItem from="1720517835672" duration="8516000" />
+      <workItem from="1720557318084" duration="4741000" />
+      <workItem from="1720594333458" duration="1876000" />
+      <workItem from="1720598999957" duration="19000" />
+      <workItem from="1720599026396" duration="2560000" />
     </task>
     <task id="LOCAL-00001" summary="First Step Change to Vuetify">
       <option name="closed" value="true" />
@@ -282,7 +289,15 @@
       <option name="project" value="LOCAL" />
       <updated>1720297019848</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="User Mana and Setting Done">
+      <option name="closed" value="true" />
+      <created>1720388612847</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1720388612847</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -325,6 +340,7 @@
     <MESSAGE value="adding backend node modules" />
     <MESSAGE value="0704" />
     <MESSAGE value="0706" />
-    <option name="LAST_COMMIT_MESSAGE" value="0706" />
+    <MESSAGE value="User Mana and Setting Done" />
+    <option name="LAST_COMMIT_MESSAGE" value="User Mana and Setting Done" />
   </component>
 </project>

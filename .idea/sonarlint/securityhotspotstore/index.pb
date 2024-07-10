@@ -105,8 +105,6 @@ H
 frontend/vite.config.mjs,4\e\4e257a31eddc428cf82185867a88193a3e62e14c
 S
 #frontend/.eslintrc-auto-import.json,9\d\9dcbb884ab95a053de5dba8e6ea1c94b4b46c694
-c
-3frontend/src/components/theHubSub/timeTableMana.vue,8\1\818151573ffe99b7a2f92decdedd79efa399e344
 b
 2frontend/src/components/theHubSub/userSettings.vue,a\a\aa1bb9adcf5020673f421d7e555fb54fb51d3ce0
 N
@@ -117,3 +115,7 @@ d
 +frontend/node_modules/pinia/dist/pinia.d.ts,8\7\87c8550c0ea343522a07b52ac506af1b637821b8
 P
  frontend/src/stores/userStore.js,5\2\52913a3ba158dcb174f65b545b2f850d7a39b6bb
+i
+9frontend/src/components/theHubSub/timeTableManaSelect.vue,f\c\fc426a3242fc8657b70fcb2552cbc854d04600c1
+c
+3frontend/src/components/theHubSub/timeTableView.vue,2\6\261d4153671ff93ca47d39575fd4e07171ae8e0f

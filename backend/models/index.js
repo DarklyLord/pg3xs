@@ -16,6 +16,7 @@ const sequelize = config.sequelize
 
 const db = {}
 
+// Read and define models
 fs.readdirSync(__dirname)
   .filter(file => {
     return (file.indexOf('.') !== 0) && (file !== basename) && (file.slice(-3) === '.js')
@@ -25,12 +26,14 @@ fs.readdirSync(__dirname)
     db[model.name] = model
   })
 
+// Set up associations
 Object.keys(db).forEach(modelName => {
   if (db[modelName].associate) {
     db[modelName].associate(db)
   }
 })
 
+// Export db with sequelize instance
 db.sequelize = sequelize
 db.Sequelize = Sequelize
 

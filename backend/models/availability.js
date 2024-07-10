@@ -1,6 +1,7 @@
-const Sequelize = require('sequelize');
-module.exports = function(sequelize, DataTypes) {
-  return sequelize.define('availability', {
+const Sequelize = require('sequelize')
+
+module.exports = function (sequelize, DataTypes) {
+  const Availability = sequelize.define('availability', {
     EmployeeID: {
       type: DataTypes.INTEGER.UNSIGNED,
       allowNull: false,
@@ -36,21 +37,27 @@ module.exports = function(sequelize, DataTypes) {
     timestamps: false,
     indexes: [
       {
-        name: "PRIMARY",
+        name: 'PRIMARY',
         unique: true,
-        using: "BTREE",
+        using: 'BTREE',
         fields: [
-          { name: "EmployeeID" },
-          { name: "Date" },
+          { name: 'EmployeeID' },
+          { name: 'Date' }
         ]
       },
       {
-        name: "fk_emp_ava_id_id",
-        using: "BTREE",
+        name: 'fk_emp_ava_id_id',
+        using: 'BTREE',
         fields: [
-          { name: "EmployeeID" },
+          { name: 'EmployeeID' }
         ]
-      },
+      }
     ]
-  });
-};
+  })
+
+  Availability.associate = function (models) {
+    Availability.belongsTo(models.employee, { foreignKey: 'EmployeeID' })
+  }
+
+  return Availability
+}

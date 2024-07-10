@@ -1,6 +1,7 @@
 const Sequelize = require('sequelize')
+
 module.exports = function (sequelize, DataTypes) {
-  return sequelize.define('employee', {
+  const Employee = sequelize.define('employee', {
     ID: {
       autoIncrement: true,
       type: DataTypes.INTEGER.UNSIGNED,
@@ -62,4 +63,14 @@ module.exports = function (sequelize, DataTypes) {
       }
     ]
   })
+
+  Employee.associate = function (models) {
+    Employee.hasMany(models.availability, { foreignKey: 'EmployeeID' })
+  }
+
+  Employee.associate = function (models) {
+    Employee.hasMany(models.employee_scheduale, { foreignKey: 'EmployeeID' })
+  }
+
+  return Employee
 }

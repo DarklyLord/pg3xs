@@ -1,5 +1,5 @@
 const express = require('express')
-const { availability } = require('../models') // Adjust the path as necessary
+const { availability, employee} = require('../models') // Adjust the path as necessary
 
 const router = express.Router()
 
@@ -12,6 +12,23 @@ router.post('/', async (req, res) => {
   } catch (error) {
     console.error('Error creating availability:', error)
     res.status(500).json({ error: 'Error creating availability' })
+  }
+})
+
+// Define the join route
+router.get('/availabilities-with-emails', async (req, res) => {
+  try {
+    const result = await availability.findAll({
+      include: {
+        model: employee,
+        attributes: ['EmailAddress'],
+        required: true // Ensures only availabilities with an associated employee are fetched
+      }
+    })
+    res.json(result)
+  } catch (error) {
+    console.error(error)
+    res.status(500).send('Server Error')
   }
 })
 
