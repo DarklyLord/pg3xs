@@ -101,7 +101,7 @@ export default {
 .logout-bar {
   display: flex;
   width: auto;
-  margin-left: 89%;
+  margin-left: auto;
   font-size: 20px;
 }
 

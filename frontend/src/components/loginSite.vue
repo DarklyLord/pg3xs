@@ -64,6 +64,7 @@ export default {
         // Handle the response data as needed
       } catch (error) {
         console.error('Error fetching data:', error);
+        alert('Your Login Data seems to be Incorrect')
         this.setEmail('')
         this.setUserLevel(0)
       }

@@ -32,7 +32,7 @@ export default {
         'July', 'August', 'September', 'October', 'November', 'December'
       ],
       selectedMonth: null,
-      choices: [ 'Morning', 'Afternoon', 'Evening'],
+      choices: [ 'Morning', 'Afternoon', 'Evening',''],
       selectedChoices: [] // Will store objects like { date: 'yyyy-mm-dd', choice: 1 }
     };
   },

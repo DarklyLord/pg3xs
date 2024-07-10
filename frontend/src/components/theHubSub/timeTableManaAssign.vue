@@ -90,6 +90,7 @@ export default {
         // Optionally, update UI or show success message
       } catch (error) {
         console.error('Error submitting shift:', error);
+        alert('Shift already in use')
         // Handle error, show error message, etc.
       }
     }

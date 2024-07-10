@@ -7,8 +7,8 @@
       <input class="input-fields" type="text" v-model="editableFirstName">
       <label>Last Name</label>
       <input class="input-fields" type="text" v-model="editableLastName">
-<!--      <label>Password</label>-->
-<!--      <input class="input-fields" type="text" v-model="editablePassword">-->
+      <label>Password</label>
+      <input class="input-fields" type="text" v-model="editablePassword">
     </v-card-item>
     <v-card-actions>
       <button class="button-test" @click="updateUser">Save changes</button>

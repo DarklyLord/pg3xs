@@ -57,9 +57,15 @@
                           v-model="this.selectedUser.Password"></v-text-field>
           </v-card-item>
           <v-card-actions>
-            <button v-if="!deleteSure" class="button-delete" @click="deleteSure=true">Delete Entry</button>
+            <!--      && this.selectedUser.EmailAddress!=='blank.blanky@example.com'       -->
+            <button v-if="!deleteSure"
+                    class="button-delete" @click="deleteSure=true">Delete Entry
+            </button>
             <button v-if="deleteSure" class="button-delete" @click="deleteUser">Really Delete?</button>
-            <button class="button-test" @click="updateUser">Save changes</button>
+            <button v-if="this.selectedUser.EmailAddress==='blank.blanky@example.com'" class="button-test"
+                    @click="updateUser">Create User
+            </button>
+            <button v-else class="button-test" @click="updateUser">Save changes</button>
           </v-card-actions>
         </v-card>
       </v-col>
@@ -106,38 +112,51 @@ export default {
     })
   },
   methods: {
+    validateNoEmailDuplicate() {
+      if(this.selectedUser.EmailAddress==='blank.blanky@example.com'){
+        alert('Please Choose another email')
+        return false
+      }
+      for (const user of this.responseData) {
+        if (this.selectedUser.EmailAddress === user.EmailAddress) {
+          alert('Email is already in Use')
+          return false
+        }
+      }
+      return true
+    },
     selectUser(user) {
-      this.deleteSure=false
+      this.deleteSure = false
       this.selectedUser = user;
     },
     forceRemount() {
       this.componentKey += 1;
     },
     validateData() {
-        if (this.selectedUser.FirstName !== '') {
-          if (this.selectedUser.LastName !== '') {
-            if (this.selectedUser.Password !== '') {
-              if (this.selectedUser.EmailAddress !== '' && /.+@.+\..+/.test(this.selectedUser.EmailAddress)) {
-                if (this.selectedUser.AccessLevelID < 4 && this.selectedUser.AccessLevelID > 0) {
-                  return true
-                }
-              } else return false
+      if (this.selectedUser.FirstName !== '') {
+        if (this.selectedUser.LastName !== '') {
+          if (this.selectedUser.Password !== '') {
+            if (this.selectedUser.EmailAddress !== '' && /.+@.+\..+/.test(this.selectedUser.EmailAddress)) {
+              if (this.selectedUser.AccessLevelID < 4 && this.selectedUser.AccessLevelID > 0) {
+                return true
+              }
             } else return false
           } else return false
         } else return false
+      } else return false
 
     },
-    async deleteUser(){
-      this.deleteSure=false
+    async deleteUser() {
+      this.deleteSure = false
       const toDeleteUserID = this.selectedUser.ID
-      try{
-        await axios.delete('/employees/'+this.selectedUser.ID);
+      try {
+        await axios.delete('/employees/' + this.selectedUser.ID);
         const idToRemove = toDeleteUserID
         const index = this.responseData.findIndex(item => item.ID === idToRemove);
         if (index > -1) {
           this.responseData.splice(index, 1);
         }
-      }catch(error){
+      } catch (error) {
         console.error('Failed to delete user:', error);
       }
 
@@ -145,45 +164,47 @@ export default {
     async updateUser() {
 
       try {
-        if (this.validateData()) {
+        if (this.validateNoEmailDuplicate()) {
+          if (this.validateData()) {
 
-          const updatedUserData = {
-            ID: this.selectedUser.ID,
-            FirstName: this.selectedUser.FirstName,
-            LastName: this.selectedUser.LastName,
-            Password: this.selectedUser.Password,
-            EmailAddress: this.selectedUser.EmailAddress,
-            AccessLevelID: this.selectedUser.AccessLevelID,
-          };
-          if (this.selectedUser.UserID === 99999999) {
-            const createUserData = {
+            const updatedUserData = {
+              ID: this.selectedUser.ID,
               FirstName: this.selectedUser.FirstName,
               LastName: this.selectedUser.LastName,
               Password: this.selectedUser.Password,
               EmailAddress: this.selectedUser.EmailAddress,
               AccessLevelID: this.selectedUser.AccessLevelID,
             };
-            await axios.post('/employees', createUserData);
-            await this.delay(10)
-            const responseData2 = await axios.post('/employees/login', {
-                EmailAddress: this.selectedUser.EmailAddress,
+            if (this.selectedUser.UserID === 99999999) {
+              const createUserData = {
+                FirstName: this.selectedUser.FirstName,
+                LastName: this.selectedUser.LastName,
                 Password: this.selectedUser.Password,
-              },
-            )
-            console.log('User Fetched:', parseInt(responseData2.data.userId))
-            const newUser={
-              ID :parseInt(responseData2.data.userId),
-              FirstName: this.selectedUser.FirstName,
-              LastName: this.selectedUser.LastName,
-              Password: this.selectedUser.Password,
-              EmailAddress: this.selectedUser.EmailAddress,
-              AccessLevelID: this.selectedUser.AccessLevelID,
+                EmailAddress: this.selectedUser.EmailAddress,
+                AccessLevelID: this.selectedUser.AccessLevelID,
+              };
+              await axios.post('/employees', createUserData);
+              await this.delay(10)
+              const responseData2 = await axios.post('/employees/login', {
+                  EmailAddress: this.selectedUser.EmailAddress,
+                  Password: this.selectedUser.Password,
+                },
+              )
+              console.log('User Fetched:', parseInt(responseData2.data.userId))
+              const newUser = {
+                ID: parseInt(responseData2.data.userId),
+                FirstName: this.selectedUser.FirstName,
+                LastName: this.selectedUser.LastName,
+                Password: this.selectedUser.Password,
+                EmailAddress: this.selectedUser.EmailAddress,
+                AccessLevelID: this.selectedUser.AccessLevelID,
+              }
+              this.responseData.push(newUser)
+            } else {
+              await axios.put('/employees/' + this.selectedUser.ID, updatedUserData);
             }
-            this.responseData.push(newUser)
-          } else {
-            await axios.put('/employees/' + this.selectedUser.ID, updatedUserData);
+            console.log('User updated:', this.editableEmail);
           }
-          console.log('User updated:', this.editableEmail);
         }
       } catch (error) {
         console.error('Failed to update user:', error);
@@ -247,7 +268,8 @@ export default {
   justify-content: center;
   max-width: 800px;
 }
-.button-delete{
+
+.button-delete {
   display: flex;
   border: none;
   border-radius: 5px;
