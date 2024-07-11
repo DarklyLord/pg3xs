@@ -1,0 +1,91 @@
+-- Drop and create schema
+DROP SCHEMA IF EXISTS employee_management_db;
+CREATE SCHEMA employee_management_db;
+
+-- Create access_level table
+CREATE TABLE employee_management_db.access_level (
+  ID int unsigned NOT NULL AUTO_INCREMENT,
+  Name varchar(25) NOT NULL,
+  Description varchar(250) NOT NULL,
+  PRIMARY KEY (ID),
+  UNIQUE KEY name_UNIQUE (Name)
+);
+
+-- Insert example data into access_level
+INSERT INTO employee_management_db.access_level (Name, Description)
+VALUES
+  ('Admin', 'Administrator with full access'),
+  ('Manager', 'Manager with limited access'),
+  ('Staff', 'Staff with restricted access');
+
+-- Create employee table
+CREATE TABLE employee_management_db.employee (
+  ID int unsigned NOT NULL AUTO_INCREMENT,
+  FirstName varchar(50) NOT NULL,
+  LastName varchar(100) NOT NULL,
+  Password varchar(50) NOT NULL,
+  AccessLevelID int unsigned NOT NULL,
+  EmailAddress varchar(50) NOT NULL,
+  PRIMARY KEY (ID),
+  KEY fk_emp_accl_id_id (AccessLevelID),
+  UNIQUE KEY email_UNIQUE (EmailAddress),
+  CONSTRAINT fk_acclvl_acc_id FOREIGN KEY (AccessLevelID) REFERENCES access_level (ID) ON DELETE RESTRICT ON UPDATE CASCADE
+);
+
+-- Insert example data into employee
+INSERT INTO employee_management_db.employee (FirstName, LastName, Password, AccessLevelID, EmailAddress)
+VALUES
+  ('Lars', 'Metzger', 'admin', 1, 'lm@lars-metzger.de'),
+  ('Lars', 'Metzger', 'user', 3, 'lars.metzger@stud.fra-uas.de'),
+  ('Emily', 'Jones', 'password789', 3, 'emily.jones@example.com'),
+  ('Michael', 'Brown', 'password111', 3, 'michael.brown@example.com'),
+  ('Sarah', 'Johnson', 'password222', 2, 'sarah.johnson@example.com'),
+  ('David', 'Williams', 'password333', 1, 'david.williams@example.com'),
+  ('Laura', 'Miller', 'password444', 3, 'laura.miller@example.com'),
+  ('James', 'Davis', 'password555', 2, 'james.davis@example.com'),
+  ('Anna', 'Garcia', 'password666', 3, 'anna.garcia@example.com'),
+  ('Robert', 'Martinez', 'password777', 1, 'robert.martinez@example.com');
+
+-- Create availability table
+CREATE TABLE employee_management_db.availability (
+  EmployeeID int unsigned NOT NULL,
+  Date date NOT NULL,
+  Morning tinyint NOT NULL DEFAULT 0,
+  Afternoon tinyint NOT NULL DEFAULT 0,
+  Evening tinyint NOT NULL DEFAULT 0,
+  PRIMARY KEY (EmployeeID, Date),
+  KEY fk_emp_ava_id_id (EmployeeID),
+  CONSTRAINT fk_ava_emp_id FOREIGN KEY (EmployeeID) REFERENCES employee (ID) ON DELETE RESTRICT ON UPDATE CASCADE
+);
+
+-- Insert example data into availability
+INSERT INTO employee_management_db.availability (EmployeeID, Date, Morning, Afternoon, Evening)
+VALUES
+  (1, '2024-07-01', 1, 0, 0),
+  (2, '2024-07-01', 0, 1, 0),
+
+
+-- Create employee_scheduale table
+CREATE TABLE employee_management_db.employee_scheduale (
+  EmployeeID int unsigned NOT NULL,
+  Date date NOT NULL,
+  AssignedShift int NOT NULL,
+  PRIMARY KEY (EmployeeID, Date),
+  CONSTRAINT fk_emp_sched_emp_id FOREIGN KEY (EmployeeID) REFERENCES employee (ID) ON DELETE RESTRICT ON UPDATE CASCADE
+);
+
+-- Insert example data into employee_scheduale
+INSERT INTO employee_management_db.employee_scheduale (EmployeeID, Date, AssignedShift)
+VALUES
+  (1, '2024-07-01', 1),
+  (2, '2024-07-01', 2),
+
+
+-- Create holiday_managment table
+CREATE TABLE employee_management_db.holiday_managment (
+  EmployeeID int unsigned NOT NULL,
+  Date date NOT NULL,
+  PRIMARY KEY (EmployeeID, Date),
+  CONSTRAINT fk_emp_hm_emp_id FOREIGN KEY (EmployeeID) REFERENCES employee (ID) ON DELETE RESTRICT ON UPDATE CASCADE
+);
+
